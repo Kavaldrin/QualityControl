@@ -1,0 +1,11 @@
+<map id="Modules/TOF/src/TaskDiagnostics.cxx" name="Modules/TOF/src/TaskDiagnostics.cxx">
+<area shape="rect" id="node8" href="$QcInfoLogger_8h.html" title="QualityControl/QcInfoLogger.h" alt="" coords="774,244,973,271"/>
+<area shape="rect" id="node11" href="$TaskDiagnostics_8h.html" title="Task to check the diagnostic words of TOF crates received trough the TOF compressor. Here are defined the counters to check the diagnostics words of the TOF crates obtained from the compressor. This is why the DiagnosticCounter class derives from DecoderBase: it reads data from the decoder. " alt="" coords="1106,80,1267,107"/>
+<area shape="rect" id="node13" href="$TaskInterface_8h.html" title="QualityControl/TaskInterface.h" alt="" coords="1703,162,1903,189"/>
+<area shape="rect" id="node30" href="$Counter_8h.html" title="Utilities to count events and fill histograms at the end of the main processing loops. " alt="" coords="1130,162,1243,189"/>
+<area shape="rect" id="node20" href="$Activity_8h.html" title="QualityControl/Activity.h" alt="" coords="1721,244,1885,271"/>
+<area shape="rect" id="node21" href="$ObjectsManager_8h.html" title="QualityControl/ObjectsManager.h" alt="" coords="1909,244,2123,271"/>
+<area shape="rect" id="node22" href="$MonitorObject_8h.html" title="QualityControl/MonitorObject.h" alt="" coords="2110,326,2311,353"/>
+<area shape="rect" id="node26" href="$MonitorObjectCollection_8h.html" title="QualityControl/MonitorObject\lCollection.h" alt="" coords="1025,319,1215,360"/>
+<area shape="rect" id="node29" href="$TaskConfig_8h.html" title="QualityControl/TaskConfig.h" alt="" coords="1792,326,1979,353"/>
+</map>

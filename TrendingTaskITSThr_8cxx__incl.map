@@ -1,0 +1,14 @@
+<map id="Modules/ITS/src/TrendingTaskITSThr.cxx" name="Modules/ITS/src/TrendingTaskITSThr.cxx">
+<area shape="rect" id="node2" href="$TrendingTaskITSThr_8h.html" title="ITS/TrendingTaskITSThr.h" alt="" coords="1885,102,2062,129"/>
+<area shape="rect" id="node13" href="$Reductor_8h.html" title="QualityControl/Reductor.h" alt="" coords="1381,191,1555,218"/>
+<area shape="rect" id="node22" href="$RootClassFactory_8h.html" title="QualityControl/RootClass\lFactory.h" alt="" coords="481,95,652,136"/>
+<area shape="rect" id="node28" href="$QcInfoLogger_8h.html" title="QualityControl/QcInfoLogger.h" alt="" coords="102,191,301,218"/>
+<area shape="rect" id="node31" href="$DatabaseInterface_8h.html" title="QualityControl/DatabaseInterface.h" alt="" coords="1529,102,1756,129"/>
+<area shape="rect" id="node36" href="$MonitorObject_8h.html" title="QualityControl/MonitorObject.h" alt="" coords="883,191,1085,218"/>
+<area shape="rect" id="node3" href="$TrendingTaskConfigITS_8h_source.html" title="ITS/TrendingTaskConfigITS.h" alt="" coords="2118,191,2314,218"/>
+<area shape="rect" id="node8" href="$PostProcessingInterface_8h.html" title="QualityControl/PostProcessing\lInterface.h" alt="" coords="2430,184,2631,225"/>
+<area shape="rect" id="node4" href="$PostProcessingConfig_8h.html" title="QualityControl/PostProcessing\lConfig.h" alt="" coords="2254,273,2455,315"/>
+<area shape="rect" id="node10" href="$Triggers_8h.html" title="QualityControl/Triggers.h" alt="" coords="2531,281,2698,307"/>
+<area shape="rect" id="node32" href="$QualityObject_8h_source.html" title="QualityControl/QualityObject.h" alt="" coords="1109,191,1307,218"/>
+<area shape="rect" id="node34" href="$Quality_8h.html" title="QualityControl/Quality.h" alt="" coords="1022,281,1183,307"/>
+</map>
