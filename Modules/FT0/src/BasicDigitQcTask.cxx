@@ -65,9 +65,6 @@ void BasicDigitQcTask::monitorData(o2::framework::ProcessingContext& ctx)
   auto channels = ctx.inputs().get<gsl::span<o2::ft0::ChannelData>>("channels");
   auto digits = ctx.inputs().get<gsl::span<o2::ft0::Digit>>("digits");
 
-  std::vector<o2::ft0::ChannelData> channelDataCopy(channels.begin(), channels.end());
-  std::vector<o2::ft0::Digit> digitDataCopy(digits.begin(), digits.end());
-
   EventWithChannelData event;
   mTTree->Branch("EventWithChannelData", &event);
 
