@@ -28,7 +28,7 @@
           "className": "o2::quality_control_modules::ft0::BasicDigitQcTask",
           "moduleName": "QcFT0",
           "detectorName": "FT0",
-          "cycleDurationSeconds": "10",
+          "cycleDurationSeconds": "6000",
           "maxNumberCycles": "-1",
           "dataSource": {
               "type": "direct",

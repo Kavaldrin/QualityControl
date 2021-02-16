@@ -37,22 +37,22 @@ void BasicDigitQcTask::initialize(o2::framework::InitContext& /*ctx*/)
   ILOG(Info, Support) << "initialize BasicDigitQcTask" << ENDM; // QcInfoLogger is used. FairMQ logs will go to there as well.
 
   mChargeHistogram = std::make_unique<TH1F>("Charge", "Charge", 200, 0, 200);
-  mTimeHistogram = std::make_unique<TH1F>("Time", "Time", 200, 0, 200);
-  mAmplitudeAndTime = std::make_unique<TH2F>("ChargeAndTime", "ChargeAndTime", 10, 0, 200, 10, 0, 200);
-  mTTree = std::make_unique<TTree>("EventTree", "EventTree");
+//  mTimeHistogram = std::make_unique<TH1F>("Time", "Time", 200, 0, 200);
+//  mAmplitudeAndTime = std::make_unique<TH2F>("ChargeAndTime", "ChargeAndTime", 10, 0, 200, 10, 0, 200);
+//  mTTree = std::make_unique<TTree>("EventTree", "EventTree");
 
   getObjectsManager()->startPublishing(mChargeHistogram.get());
-  getObjectsManager()->startPublishing(mTimeHistogram.get());
-  getObjectsManager()->startPublishing(mTTree.get());
-  getObjectsManager()->startPublishing(mAmplitudeAndTime.get());
+//  getObjectsManager()->startPublishing(mTimeHistogram.get());
+//  getObjectsManager()->startPublishing(mTTree.get());
+//  getObjectsManager()->startPublishing(mAmplitudeAndTime.get());
 }
 
 void BasicDigitQcTask::startOfActivity(Activity& activity)
 {
   ILOG(Info, Support) << "startOfActivity" << activity.mId << ENDM;
-  mTimeHistogram->Reset();
+//  mTimeHistogram->Reset();
   mChargeHistogram->Reset();
-  mTTree->Reset();
+//  mTTree->Reset();
 }
 
 void BasicDigitQcTask::startOfCycle()
@@ -69,19 +69,19 @@ void BasicDigitQcTask::monitorData(o2::framework::ProcessingContext& ctx)
   std::vector<o2::ft0::ChannelData> channelDataCopy(channels.begin(), channels.end());
   std::vector<o2::ft0::Digit> digitDataCopy(digits.begin(), digits.end());
 
-  EventWithChannelData event;
-  mTTree->Branch("EventWithChannelData", &event);
+//  EventWithChannelData event;
+//  mTTree->Branch("EventWithChannelData", &event);
 
   for (auto& digit : digits) {
     auto currentChannels = digit.getBunchChannelData(channels);
-    auto timestamp = o2::InteractionRecord::bc2ns(digit.getBC(), digit.getOrbit());
-    event = EventWithChannelData{ digit.getEventID(), digit.getBC(), digit.getOrbit(), timestamp, std::vector<o2::ft0::ChannelData>(currentChannels.begin(), currentChannels.end()) };
-    mTTree->Fill();
+//    auto timestamp = o2::InteractionRecord::bc2ns(digit.getBC(), digit.getOrbit());
+//    event = EventWithChannelData{ digit.getEventID(), digit.getBC(), digit.getOrbit(), timestamp, std::vector<o2::ft0::ChannelData>(currentChannels.begin(), currentChannels.end()) };
+//    mTTree->Fill();
 
     for (auto& channel : currentChannels) {
       mChargeHistogram->Fill(channel.QTCAmpl);
-      mTimeHistogram->Fill(channel.CFDTime);
-      mAmplitudeAndTime->Fill(channel.QTCAmpl, channel.CFDTime);
+//      mTimeHistogram->Fill(channel.CFDTime);
+//      mAmplitudeAndTime->Fill(channel.QTCAmpl, channel.CFDTime);
     }
   }
 
@@ -110,10 +110,10 @@ void BasicDigitQcTask::reset()
 {
   // clean all the monitor objects here
 
-  mTimeHistogram->Reset();
+//  mTimeHistogram->Reset();
   mChargeHistogram->Reset();
-  mTTree->Reset();
-  mAmplitudeAndTime->Reset();
+//  mTTree->Reset();
+//  mAmplitudeAndTime->Reset();
 }
 
 } // namespace o2::quality_control_modules::ft0
