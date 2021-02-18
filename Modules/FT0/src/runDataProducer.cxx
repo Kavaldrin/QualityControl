@@ -51,22 +51,25 @@ class FT0DataProducer : public Task
   }
   void run(ProcessingContext& pc) final
   {
+
     std::vector<o2::ft0::Digit> digits, *pdigits = &digits;
     std::vector<o2::ft0::ChannelData> channels, *pchannels = &channels;
     mTree->SetBranchAddress("FT0DIGITSBC", &pdigits);
     mTree->SetBranchAddress("FT0DIGITSCH", &pchannels);
 
-    for (int tFrame = 0; tFrame < mTree->GetEntries(); ++tFrame) {
-      mTree->GetEntry(tFrame);
-      pc.outputs().snapshot(Output{ "FT0", "DIGITSBC", 0, Lifetime::Timeframe }, digits);
-      pc.outputs().snapshot(Output{ "FT0", "DIGITSCH", 0, Lifetime::Timeframe }, channels);
+    if(mCounterTF >= mTree->GetEntries()){
+        mCounterTF = 0;
     }
 
-    pc.services().get<ControlService>().endOfStream();
-    pc.services().get<ControlService>().readyToQuit(QuitRequest::Me);
+    mTree->GetEntry(mCounterTF);
+    pc.outputs().snapshot(Output{ "FT0", "DIGITSBC", 0, Lifetime::Timeframe }, digits);
+    pc.outputs().snapshot(Output{ "FT0", "DIGITSCH", 0, Lifetime::Timeframe }, channels);
+    ++mCounterTF;
+
   }
 
  private:
+  unsigned int mCounterTF = 0;
   std::unique_ptr<TTree> mTree;
   std::unique_ptr<TFile> mFile;
 };

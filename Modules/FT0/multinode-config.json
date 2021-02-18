@@ -13,7 +13,7 @@
           "type": "2"
         },
         "monitoring": {
-          "url": "infologger:///debug?qc"
+          "url": "infologger:///debug?METRIC"
         },
         "consul": {
           "url": "http://consul-test.cern.ch:8500"
@@ -37,11 +37,11 @@
           "taskParameters": {},
           "location": "local",
           "localMachines": [
-            "2a",
-            "3a"
+            "ubuntu2"
           ],
-          "remoteMachine": "4a",
-          "remotePort": "30132"
+          "remoteMachine": "ubuntu2",
+          "remotePort": "30132",
+          "mergingMode": "entire"
         }
       },
       "checks": {

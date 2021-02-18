@@ -34,37 +34,37 @@ namespace o2::quality_control_modules::ft0
 
 void ChannelsCheck::configure(std::string) {}
 
-Quality ChannelsCheck::check(std::map<std::string, std::shared_ptr<MonitorObject>>* moMap)
+Quality ChannelsCheck::check(std::map<std::string, std::shared_ptr<MonitorObject>>* )
 {
-  for (auto [name, obj] : *moMap) {
-    (void)name;
-
-    if (obj->getName() == "EventTree") {
-      TTree* tree = dynamic_cast<TTree*>(obj->getObject());
-      if (tree->GetEntries() == 0) {
-        return Quality::Bad;
-      }
-
-      EventWithChannelData event, *pEvent = &event;
-      tree->SetBranchAddress("EventWithChannelData", &pEvent);
-      for (unsigned int i = 0; i < tree->GetEntries(); ++i) {
-        tree->GetEntry(i);
-        const auto& channels = event.getChannels();
-
-        if (channels.empty()) {
-          return Quality::Bad;
-        }
-
-        for (const auto& channel : channels) {
-          if (channel.ChId == 0xff || channel.ChainQTC == 0xff || channel.CFDTime == -1000 || channel.QTCAmpl == -1000) {
-            return Quality::Bad;
-          }
-        }
-      }
-
-      return Quality::Good;
-    }
-  }
+//  for (auto [name, obj] : *moMap) {
+//    (void)name;
+//
+//    if (obj->getName() == "EventTree") {
+//      TTree* tree = dynamic_cast<TTree*>(obj->getObject());
+//      if (tree->GetEntries() == 0) {
+//        return Quality::Bad;
+//      }
+//
+//      EventWithChannelData event, *pEvent = &event;
+//      tree->SetBranchAddress("EventWithChannelData", &pEvent);
+//      for (unsigned int i = 0; i < tree->GetEntries(); ++i) {
+//        tree->GetEntry(i);
+//        const auto& channels = event.getChannels();
+//
+//        if (channels.empty()) {
+//          return Quality::Bad;
+//        }
+//
+//        for (const auto& channel : channels) {
+//          if (channel.ChId == 0xff || channel.ChainQTC == 0xff || channel.CFDTime == -1000 || channel.QTCAmpl == -1000) {
+//            return Quality::Bad;
+//          }
+//        }
+//      }
+//
+//      return Quality::Good;
+//    }
+//  }
 
   return Quality::Bad;
 }
